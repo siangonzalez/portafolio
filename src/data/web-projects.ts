@@ -14,6 +14,13 @@ export type WebProject = {
   features: string[];
   quality: string[]; // rendimiento, SEO, accesibilidad, seguridad
   ux: { user: string; goal: string; flow: string[] };
+  // Documentación UX hecha en Figma (opcional).
+  uxDoc?: {
+    note: string;
+    figmaUrl?: string;
+    images: { src: string; alt: string; caption: string; width: number; height: number }[];
+    decisions: string[];
+  };
   liveUrl?: string;
   repoUrl?: string;
   demoUrl?: string;
@@ -121,7 +128,7 @@ export const webProjects: WebProject[] = [
     summary:
       "Sitio del consultorio en Chapinero, pensado para generar confianza con casos reales y llevar al paciente a pedir su cita.",
     role: ["Diseño y desarrollo del sitio", "Fotografía y video propios"],
-    stack: ["HTML5", "CSS3", "JavaScript"],
+    stack: ["HTML5", "CSS3", "JavaScript", "Figma (documentación UX)"],
     features: [
       "Galería de casos clínicos de antes y después",
       "Video testimonio del consultorio",
@@ -137,6 +144,27 @@ export const webProjects: WebProject[] = [
       user: "Pacientes que buscan un odontólogo de confianza en Bogotá",
       goal: "Ver resultados reales y agendar sin fricción",
       flow: ["Conoce los servicios", "Ve casos de antes y después", "Lee testimonios", "Agenda por WhatsApp"],
+    },
+    uxDoc: {
+      note: "Documentación reconstruida en Figma a partir del sitio publicado: el diseño se iteró en código y aquí se documentan su estructura y su flujo.",
+      figmaUrl: "https://www.figma.com/design/B1KG61aOxladEqeFSz6rT6",
+      images: [
+        {
+          src: "/img/ux/sonrieme-movil.webp",
+          alt: "Wireframe móvil de baja fidelidad del sitio Sonrieme, de la barra superior al cierre",
+          caption: "Wireframe móvil (390 px)",
+          width: 390,
+          height: 2383,
+        },
+      ],
+      decisions: [
+        "El botón «Agendar cita» está fijo en la barra superior: el paciente puede agendar desde cualquier punto del recorrido.",
+        "El hero dice qué ofrece el consultorio y lleva directo a WhatsApp, el canal por el que el consultorio atiende a sus pacientes.",
+        "Los casos de antes y después van antes de los testimonios: primero la prueba visual, luego la confianza social.",
+        "En móvil los casos se muestran de a uno, para que cada foto se vea grande.",
+        "La ubicación en Chapinero aparece cerca del cierre, cuando el paciente ya decidió y necesita saber cómo llegar.",
+        "El cierre repite el llamado a la acción con un mensaje que baja la fricción (valoración inicial).",
+      ],
     },
     liveUrl: "https://dramariapaulaq.com",
     repoUrl: "https://github.com/siangonzalez/Sonrieme",

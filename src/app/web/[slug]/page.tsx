@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Chip } from "@/components/Section";
@@ -130,6 +131,44 @@ export default async function WebProjectPage({ params }: PageProps<"/web/[slug]"
             ))}
           </ol>
         </section>
+
+        {project.uxDoc && (
+          <section>
+            <h2 className="font-display text-2xl font-bold text-navy">Wireframes y decisiones UX</h2>
+            <p className="mt-2 text-sm text-deep/70">{project.uxDoc.note}</p>
+            <div className="mt-6 grid gap-8 md:grid-cols-[280px_1fr]">
+              {project.uxDoc.images.map((img) => (
+                <figure key={img.src}>
+                  <div className="max-h-[640px] overflow-y-auto rounded-xl border border-ice bg-white shadow-sm" tabIndex={0} aria-label={`${img.caption}, desplázate para verlo completo`}>
+                    <Image src={img.src} alt={img.alt} width={img.width} height={img.height} className="h-auto w-full" />
+                  </div>
+                  <figcaption className="mt-2 text-xs text-deep/70">{img.caption} · desplázate para verlo completo</figcaption>
+                </figure>
+              ))}
+              <div>
+                <h3 className="font-medium text-navy">Decisiones de diseño</h3>
+                <ol className="mt-3 space-y-3">
+                  {project.uxDoc.decisions.map((d, i) => (
+                    <li key={d} className="flex gap-3 rounded-lg bg-ice p-3 text-sm">
+                      <span className="font-display text-lg font-bold text-mid">{i + 1}</span>
+                      <span>{d}</span>
+                    </li>
+                  ))}
+                </ol>
+                {project.uxDoc.figmaUrl && (
+                  <a
+                    href={project.uxDoc.figmaUrl}
+                    target="_blank"
+                    rel="noopener"
+                    className="mt-6 inline-block rounded-full bg-navy px-5 py-2.5 text-sm font-medium text-white hover:bg-mid"
+                  >
+                    Ver el archivo en Figma ↗
+                  </a>
+                )}
+              </div>
+            </div>
+          </section>
+        )}
       </div>
     </article>
   );
