@@ -89,6 +89,9 @@ export default async function Home() {
         <a href={profile.behance} className="mt-8 inline-block text-sm text-muted underline hover:text-white">
           Más trabajos en Behance ↗
         </a>
+        <Link href="/audiovisual/" className="ml-6 mt-8 inline-block text-sm text-muted underline hover:text-white">
+          Ver mi portafolio audiovisual completo →
+        </Link>
       </Section>
 
       {/* Experiencia */}
