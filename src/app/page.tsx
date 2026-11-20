@@ -95,12 +95,12 @@ export default async function Home() {
             <BrandCaseCard key={c.slug} item={c} />
           ))}
         </div>
-        <h3 className="mt-14 font-display text-xl font-bold text-navy">Algunos logos que he diseñado</h3>
+        <h3 className="mt-14 font-display text-xl font-bold text-navy">Logos en los que he trabajado</h3>
         <div className="mt-4">
           <LogoWall limit={10} />
         </div>
         <Link href="/marca/" className="mt-8 inline-block rounded-full bg-navy px-5 py-2.5 font-medium text-white hover:bg-mid">
-          Ver todos los casos, 30 logos y motion →
+          Ver todos los casos, logos y motion →
         </Link>
       </Section>
 

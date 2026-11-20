@@ -28,6 +28,8 @@ export type BrandCase = {
   type?: string[];
   cover: Img;
   logo: Img;
+  // Imagen grande del encabezado; si falta, se usa el logo.
+  hero?: Img;
   gallery: Img[];
   // "wide" para páginas de manual horizontales, "tall" para piezas de redes.
   layout: "wide" | "tall";
@@ -131,7 +133,8 @@ export const brandCases: BrandCase[] = [
     ],
     cover: img("/marca/sonrieme/P01.webp", "Pieza de anuncio de los 10 años de Sonrieme"),
     logo: img("/marca/logos/sonrieme.webp", "Logo de la Dra. María Paula R. Quiroz, odontología integral"),
-    gallery: ["P02", "P05", "P07", "P10", "P13", "S01", "S03", "S10"].map((p) =>
+    hero: img("/marca/sonrieme/S01.webp", "Historia «¡Cumplimos 10 años!» de Sonrieme"),
+    gallery: ["P02", "P05", "P07", "P10", "P13", "S03", "S10"].map((p) =>
       img(`/marca/sonrieme/${p}.webp`, "Pieza de redes de Sonrieme"),
     ),
     layout: "tall",
@@ -156,10 +159,10 @@ export const brandCases: BrandCase[] = [
     ],
     cover: img("/marca/marco/2026-10-26-1.webp", "Pieza «Tu corte, con ritual incluido» de Marco Barberia's"),
     logo: img("/marca/logos/marco-barberias.webp", "Logo de Marco Barberia's"),
+    hero: img("/marca/marco/2026-11-03-1.webp", "Pieza «Noviembre, el mes del caballero» de Marco Barberia's"),
     gallery: [
       "2026-10-28-5",
       "2026-10-30-7",
-      "2026-11-03-1",
       "2026-11-04-5",
       "2026-11-06-1",
       "2026-11-11-7",
@@ -182,27 +185,19 @@ export const moreManuals = [
     pages: ["01", "02", "03", "04", "05"].map((n) => img(`/marca/mikiwi/manual-${n}.webp`, `Manual de marca de MiKiwi, página ${Number(n)}`)),
   },
   {
-    name: "Mil Ideas · Regalos bien pensados",
-    note: "Manual de marca 2020: logo, color, tipografía y aplicaciones",
-    pages: ["01", "04", "06", "08", "09", "10"].map((n) => img(`/marca/milideas/manual-${n}.webp`, `Manual de marca de Mil Ideas, página ${Number(n)}`)),
-  },
-  {
     name: "La Hora 13",
     note: "Manual de identidad: estructura del logo, tipografía, paleta y usos",
     pages: ["01", "03", "04", "05", "06"].map((n) => img(`/marca/lahora13/manual-${n}.webp`, `Manual de marca de La Hora 13, página ${Number(n)}`)),
   },
 ];
 
-// Muro de logos (todos diseñados por Sian).
+// Muro de logos: diseños, rediseños y ajustes de logo. No decir que todos son diseños desde cero.
 const L = (file: string, name: string) => ({ name, ...img(`/marca/logos/${file}.webp`, `Logo de ${name}`) });
 export const logoWall = [
   L("caoba-hotels", "Caoba Hotels"),
   L("aqui-es", "Aquí es Inmobiliaria"),
   L("gecco", "GECCO"),
-  L("marco-barberias", "Marco Barberia's"),
-  L("sonrieme", "Dra. María Paula R. Quiroz"),
   L("bella-sweet", "Bella Sweet"),
-  L("mil-ideas", "Mil Ideas"),
   L("ospo", "Osma Potes Abogados"),
   L("mikiwi", "MiKiwi"),
   L("geopodlitic", "Geopodlitic"),

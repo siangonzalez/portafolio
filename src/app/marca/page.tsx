@@ -9,7 +9,7 @@ import { profile } from "@/data/profile";
 export const metadata: Metadata = {
   title: "Identidad de marca y motion",
   description:
-    "Logos, manuales de marca, líneas gráficas para redes y motion graphics de Sian González: Caoba Hotels, Aquí es Inmobiliaria, GECCO, Sonrieme, Marco Barberia's y más de 30 marcas.",
+    "Logos, manuales de marca, líneas gráficas para redes y motion graphics de Sian González: Caoba Hotels, Aquí es Inmobiliaria, GECCO, Sonrieme, Marco Barberia's y más de 25 marcas.",
   alternates: { canonical: "/marca/" },
   openGraph: { title: "Sian González — Identidad de marca y motion", images: ["/marca/caoba/manual-01.webp"] },
 };
@@ -47,7 +47,7 @@ export default function MarcaPage() {
         </div>
       </Section>
 
-      <Section id="logos" eyebrow="Logos" title={`${logoWall.length} marcas que he diseñado`} intro="Restaurantes, firmas legales, salud, minería, podcasts, moda y emprendimientos.">
+      <Section id="logos" eyebrow="Logos" title="Logos en los que he trabajado" intro={`${logoWall.length} marcas: diseños desde cero, rediseños y ajustes de logos existentes, para restaurantes, firmas legales, salud, minería, podcasts, moda y emprendimientos.`}>
         <LogoWall />
       </Section>
 

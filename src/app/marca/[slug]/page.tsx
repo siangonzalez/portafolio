@@ -37,6 +37,7 @@ export default async function BrandCasePage({ params }: PageProps<"/marca/[slug]
   const index = brandCases.indexOf(item);
   const next = brandCases[(index + 1) % brandCases.length];
   const tall = item.layout === "tall";
+  const hero = item.hero ?? item.logo;
 
   return (
     <article>
@@ -59,13 +60,13 @@ export default async function BrandCasePage({ params }: PageProps<"/marca/[slug]
             )}
           </div>
           <Image
-            src={item.logo.src}
-            alt={item.logo.alt}
-            width={item.logo.width}
-            height={item.logo.height}
+            src={hero.src}
+            alt={hero.alt}
+            width={hero.width}
+            height={hero.height}
             priority
             sizes="420px"
-            className="w-full rounded-2xl"
+            className={`w-full rounded-2xl ${item.hero ? "mx-auto max-h-[460px] w-auto" : ""}`}
           />
         </div>
       </header>
