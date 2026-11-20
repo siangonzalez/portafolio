@@ -17,3 +17,11 @@
   from = "/sian/*"
   to = "/:splat"
   status = 200
+
+# Quien entre por la dirección vieja (sian-gonzalez.netlify.app/...) va a la nueva.
+# Va después de las reglas de /sian: el proxy del estudio siempre pide /sian/..., así que no lo afecta.
+[[redirects]]
+  from = "/*"
+  to = "https://www.nomadaestudio.digital/sian/:splat"
+  status = 301
+  force = true
