@@ -47,7 +47,7 @@ export default function MarcaPage() {
         </div>
       </Section>
 
-      <Section id="logos" eyebrow="Logos" title="Logos en los que he trabajado" intro={`${logoWall.length} marcas: diseños desde cero, rediseños y ajustes de logos existentes, para restaurantes, firmas legales, salud, minería, podcasts, moda y emprendimientos.`}>
+      <Section id="logos" eyebrow="Logos" title="Marcas con las que he trabajado" intro={`${logoWall.length} marcas: diseños desde cero, rediseños y ajustes de logos existentes, para restaurantes, firmas legales, salud, minería, podcasts, moda y emprendimientos.`}>
         <LogoWall />
       </Section>
 

@@ -95,7 +95,7 @@ export default async function Home() {
             <BrandCaseCard key={c.slug} item={c} />
           ))}
         </div>
-        <h3 className="mt-14 font-display text-xl font-bold text-navy">Logos en los que he trabajado</h3>
+        <h3 className="mt-14 font-display text-xl font-bold text-navy">Marcas con las que he trabajado</h3>
         <div className="mt-4">
           <LogoWall limit={10} />
         </div>
