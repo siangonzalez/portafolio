@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BrandCaseCard, ClientStrip, LogoWall } from "@/components/BrandBlocks";
 import { Gallery } from "@/components/Gallery";
 import { Chip, Section } from "@/components/Section";
 import { WebProjectCard } from "@/components/WebProjectCard";
+import { brandCases } from "@/data/brand-projects";
 import { courses, experience, profile, skillGroups, stats } from "@/data/profile";
 import { otherSites, webProjects } from "@/data/web-projects";
 import { getGalleryProjects } from "@/lib/portfolio-api";
@@ -23,6 +25,9 @@ export default async function Home() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="#web" className="rounded-full bg-mid px-5 py-2.5 font-medium text-white hover:bg-white hover:text-navy">
                 Ver proyectos web
+              </Link>
+              <Link href="/marca/" className="rounded-full border border-ice/40 px-5 py-2.5 font-medium hover:border-white hover:text-white">
+                Ver marcas y motion
               </Link>
               <a href={`mailto:${profile.email}`} className="rounded-full border border-ice/40 px-5 py-2.5 font-medium hover:border-white hover:text-white">
                 Escribirme
@@ -51,6 +56,7 @@ export default async function Home() {
           ))}
         </dl>
       </section>
+      <ClientStrip />
 
       {/* Proyectos web */}
       <Section
@@ -75,6 +81,27 @@ export default async function Home() {
             </li>
           ))}
         </ul>
+      </Section>
+
+      {/* Identidad de marca */}
+      <Section
+        id="marca"
+        eyebrow="Diseño de marca"
+        title="Identidad de marca"
+        intro="Logos, manuales y líneas gráficas que después llevo a la web, a las redes y al video."
+      >
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {brandCases.slice(0, 3).map((c) => (
+            <BrandCaseCard key={c.slug} item={c} />
+          ))}
+        </div>
+        <h3 className="mt-14 font-display text-xl font-bold text-navy">Algunos logos que he diseñado</h3>
+        <div className="mt-4">
+          <LogoWall limit={10} />
+        </div>
+        <Link href="/marca/" className="mt-8 inline-block rounded-full bg-navy px-5 py-2.5 font-medium text-white hover:bg-mid">
+          Ver todos los casos, 30 logos y motion →
+        </Link>
       </Section>
 
       {/* Galería audiovisual */}
