@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import type { Clip } from "@/data/brand-projects";
+import { asset } from "@/lib/site";
 
 // Clip corto en bucle y sin sonido. Solo se reproduce cuando está a la vista,
 // y no se reproduce solo si la persona prefiere menos movimiento.
@@ -28,8 +29,8 @@ export function MotionClip({ clip, dark = false }: { clip: Clip; dark?: boolean 
       <video
         ref={ref}
         className="aspect-video w-full rounded-xl bg-black object-cover"
-        src={clip.src}
-        poster={clip.poster}
+        src={asset(clip.src)}
+        poster={asset(clip.poster)}
         muted
         loop
         playsInline

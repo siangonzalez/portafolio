@@ -1,13 +1,16 @@
 // Loader de next/image para Cloudinary.
 // Recibe el publicId (por ejemplo "v1791579001/portafolio/abc/def") y devuelve
 // una URL con ancho, formato y calidad automáticos.
+import { asset } from "./site";
+
 const CLOUD = "https://res.cloudinary.com/dvmhdtwiq";
 
 type LoaderArgs = { src: string; width: number; quality?: number };
 
 export default function cloudinaryLoader({ src, width, quality }: LoaderArgs): string {
-  // Imágenes locales (carpeta /public) o URLs completas se devuelven tal cual.
-  if (src.startsWith("/") || src.startsWith("http")) return src;
+  // Imágenes locales (carpeta /public) llevan el prefijo del sitio; las URLs completas van tal cual.
+  if (src.startsWith("/")) return asset(src);
+  if (src.startsWith("http")) return src;
   const q = quality ? `q_${quality}` : "q_auto";
   return `${CLOUD}/image/upload/f_auto,${q},c_limit,w_${width}/${src}`;
 }

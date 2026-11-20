@@ -5,6 +5,8 @@ import type { NextConfig } from "next";
 // en lugar del optimizador de imágenes de Next.js.
 const nextConfig: NextConfig = {
   output: "export",
+  // Se publica en www.nomadaestudio.digital/sian (ver src/lib/site.ts).
+  basePath: "/sian",
   trailingSlash: true,
   // Tailwind CSS v4 se procesa con su loader para Turbopack.
   turbopack: {

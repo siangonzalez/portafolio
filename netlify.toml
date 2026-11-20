@@ -4,3 +4,16 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# El sitio se construye con basePath "/sian" para vivir en www.nomadaestudio.digital/sian.
+# Aquí los archivos quedan en la raíz, así que /sian/* se sirve desde la raíz.
+# Así también sigue funcionando la dirección sian-gonzalez.netlify.app.
+[[redirects]]
+  from = "/sian"
+  to = "/"
+  status = 200
+
+[[redirects]]
+  from = "/sian/*"
+  to = "/:splat"
+  status = 200
